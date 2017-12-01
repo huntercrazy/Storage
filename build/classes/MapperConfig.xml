@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC
+ "-//mybatis.org//DTD Config 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+	<typeAliases>
+		<package name="org.ssm.storage.manager.goods.entity"/>
+		<package name="org.ssm.storage.manager.storage.entity"/>
+		<package name="org.ssm.storage.manager.user.entity"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="org/ssm/storage/manager/goods/mapper/GoodsMapper.xml"/>
+		<mapper resource="org/ssm/storage/manager/storage/mapper/CangKuMapper.xml"/>
+		<mapper resource="org/ssm/storage/manager/storage/mapper/DiaoBoMapper.xml"/>
+		<mapper resource="org/ssm/storage/manager/storage/mapper/KuCunMapper.xml"/>
+		<mapper resource="org/ssm/storage/manager/storage/mapper/RuKuMapper.xml"/>
+		<mapper resource="org/ssm/storage/manager/storage/mapper/ShunHuaiMapper.xml"/>
+		<mapper resource="org/ssm/storage/manager/user/mapper/GongYingMapper.xml"/>
+		<mapper resource="org/ssm/storage/manager/user/mapper/KeHuMapper.xml"/>
+		<mapper resource="org/ssm/storage/manager/user/mapper/UserMapper.xml"/>
+	</mappers>
+</configuration>

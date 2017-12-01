@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	
+<mapper namespace="org.ssm.storage.manager.storage.mapper.ChuKuMapper">
+	
+	<insert id="addChuku" parameterType="chuku" useGeneratedKeys="true" keyProperty="id">
+	insert into t_chuku(goodsName,userName,outTime,outPrice,outNum,khName,ckName,status,otherPrice,content) values(#{goodsName},#{userName},#{outTime},#{outPrice},#{outNum},#{khName},#{ckName},#{status},#{otherPrice},#{content})
+	</insert>
+	
+	<delete id="deleteChuKu" parameterType="int">
+	delete from t_chuku where id = #{id};
+	</delete>
+	
+	<update id="updateChuKu" parameterType="chuku">
+	update t_chuku
+	<set>
+	<if test="goodsName != null">
+		goodsName = #{goodsName},
+	</if>
+	<if test="userName != null">
+		userName = #{userName},
+	</if>
+	<if test="outTime != null">
+		outTime = #{outTime},
+	</if>
+	<if test="outPrice != null">
+		outPrice = #{outPrice},
+	</if>
+	<if test="outNum != null">
+		outNum = #{outNum},
+	</if>
+	<if test="khName != null">
+		khName = #{khName},
+	</if>
+	<if test="ckName != null">
+		ckName = #{ckName},
+	</if>
+	<if test="status != null">
+		status = #{status},
+	</if>
+	<if test="otherPrice != null">
+		otherPrice = #{otherPrice},
+	</if>
+	<if test="content != null">
+		content = #{content},
+	</if>
+	</set>
+	where id = #{id};
+	</update>
+	
+	<select id="getoneChuKu" parameterType="int" resultType="chuku">
+	select id,goodsName,userName,outTime,outPrice,outNum,khName,ckName,status,otherPrice,content from t_chuku where id = #{id};
+	</select>
+	
+	<select id="getMoreChuKu" resultType="chuku">
+	select id,goodsName,userName,outTime,outPrice,outNum,khName,ckName,status,otherPrice,content from t_chuku;
+	</select>
+	
+	<select id="getcounts" parameterType="java.lang.String">
+	select outNum from t_chuku where goodsName = #{goodsName} and ckName = #{ckName}
+	</select>
+	
+	<select id="getoutPrice" parameterType="java.lang.String">
+	select outPrice from t_chuku where goodsName = #{goodsName} and ckName = #{ckName}
+	</select>
+	
+	<select id="getChuKuByckName" resultType="chuku">
+	select id,goodsName,userName,outTime,outPrice,outNum,khName,ckName,status,otherPrice,content from t_chuku where ckName= #{ckName};
+	</select>
+</mapper>

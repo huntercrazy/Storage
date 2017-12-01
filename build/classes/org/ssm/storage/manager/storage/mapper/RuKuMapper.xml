@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	
+<mapper namespace="org.ssm.storage.manager.storage.mapper.RuKuMapper">
+	
+	<insert id="addRuKu" parameterType="ruku" useGeneratedKeys="true" keyProperty="id">
+	insert into t_ruku (goodsName,userName,inTime,inPrice,inNum,gyName,ckName,status,otherPrice,content) values(#{goodsName},#{userName},#{inTime},#{inPrice},#{inNum},#{gyName},#{ckName},#{status},#{otherPrice},#{content});
+	</insert>
+	
+	<delete id="deleteRuKu" parameterType="int">
+	delete from t_ruku where id = #{id};
+	</delete>
+	
+	<update id="updateRuKu" parameterType="ruku">
+	update t_ruku
+	<set>
+	<if test="goodsName != null">
+		goodsName = #{goodsName},
+	</if>
+	<if test="userName != null">
+		userName = #{userName},
+	</if>
+	<if test="inTime != null">
+		inTime = #{inTime},
+	</if>
+	<if test="inPrice != null">
+		inPrice = #{inPrice},
+	</if>
+	<if test="inNum != null">
+		inNum = #{inNum},
+	</if>
+	<if test="gyName != null">
+		gyName = #{gyName},
+	</if>
+	<if test="ckName != null">
+		ckName = #{ckName},
+	</if>
+	<if test="status != null">
+		status = #{status},
+	</if>
+	<if test="otherPrice != null">
+		otherPrice = #{otherPrice},
+	</if>
+	<if test="content != null">
+		content = #{content},
+	</if>
+	</set>
+	where id = #{id};
+	</update>
+	
+	<select id="getoneRuKu" parameterType="int" resultType="ruku">
+	select id,goodsName,userName,inTime,inPrice,inNum,gyName,ckName,status,otherPrice,content from t_ruku where id = #{id};
+	</select>
+	
+	<select id="getMoreRuKu" resultType="ruku">
+	select id,goodsName,userName,inTime,inPrice,inNum,gyName,ckName,status,otherPrice,content from t_ruku;
+	</select>
+	
+	
+</mapper>

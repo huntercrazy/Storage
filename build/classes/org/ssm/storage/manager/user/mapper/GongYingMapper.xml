@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	
+<mapper namespace="org.ssm.storage.manager.user.mapper.GongYingMapper">
+	
+	<insert id="addGongYing" parameterType="gongying" useGeneratedKeys="true" keyProperty="id">
+	insert into t_gongying (gyName,gyAddress,gyPhone,content) values(#{gyName},#{gyAddress},#{gyPhone},#{content});
+	</insert>
+	
+	<delete id="deleteGongYing" parameterType="int">
+	delete from t_gongying where id = #{id};
+	</delete>
+	
+	<update id="updateGongYing" parameterType="gongying">
+	update t_gongying
+	<set>
+	<if test="gyName != null">
+		gyName = #{gyName},
+	</if>
+	<if test="gyAddress != null">
+		gyAddress = #{gyAddress},
+	</if>
+	<if test="gyPhone != null">
+		gyPhone = #{gyPhone},
+	</if>
+	<if test="content != null">
+		content = #{content},
+	</if>
+	</set>
+	where id = #{id};
+	</update>
+	
+	<select id="getoneGongYing" parameterType="String" resultType="gongying">
+	select id,gyName,gyAddress,gyPhone,content from t_gongying where gyName = #{gyName};
+	</select>
+	
+	<select id="getMoreGongYing" resultType="gongying">
+	select id,gyName,gyAddress,gyPhone,content from t_gongying;
+	</select>
+	
+	<select id="getGongYingName" resultType="gongying">
+	select gyName from t_gongying
+	</select>
+	
+	
+</mapper>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	
+<mapper namespace="org.ssm.storage.manager.user.mapper.KeHuMapper">
+	
+	<insert id="addKeHu" parameterType="kehu" useGeneratedKeys="true" keyProperty="id">
+	insert into t_kehu (khName,khAddress,khPhone,content) values(#{khName},#{khAddress},#{khPhone},#{content})
+	</insert>
+	
+	<delete id="deleteKeHu" parameterType="int">
+	delete from t_kehu where id = #{id}
+	</delete>
+	
+	<update id="updateKeHu" parameterType="kehu">
+	update t_kehu
+	<set>
+	<if test="khName != null">
+		khName = #{khName},
+	</if>
+	<if test="khAddress != null">
+		khAddress = #{khAddress},
+	</if>
+	<if test="khPhone != null">
+		khPhone = #{khPhone},
+	</if>
+	<if test="content != null">
+		content = #{content},
+	</if>
+	</set>
+	where id = #{id}
+	</update>
+	
+	<select id="getoneKeHu" parameterType="int" resultType="kehu">
+	select id,khName,khAddress,khPhone,content from t_kehu where id = #{id}
+	</select>
+	
+	<select id="getoneKeHuN" parameterType="String" resultType="kehu">
+	select id,khName,khAddress,khPhone,content from t_kehu where khName = #{khName}
+	</select>
+	
+	<select id="getMoreKeHu" resultType="kehu">
+	select id,khName,khAddress,khPhone,content from t_kehu
+	</select>
+	
+	<select id="getKeHuName" resultType="kehu">
+	select khName from t_kehu
+	</select>
+	
+	
+</mapper>

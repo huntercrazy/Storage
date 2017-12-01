@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	
+<mapper namespace="org.ssm.storage.manager.storage.mapper.CangKuMapper">
+	<insert id="addCangKu" parameterType="cangku" useGeneratedKeys="true" keyProperty="id">
+	insert into t_cangku (ckName,userName,ckAddress,content) values(#{ckName},#{userName},#{ckAddress},#{content});
+	</insert>
+	
+	<update id="updateCangKu" parameterType="cangku">
+	update t_cangku
+	<set>
+	<if test="ckName != null">
+		ckName = #{ckName},
+	</if>
+	<if test="userName != null">
+		userName = #{userName},
+	</if>
+	<if test="ckAddress != null">
+		ckAddress = #{ckAddress},
+	</if>
+	<if test="content != null">
+		content = #{content},
+	</if>
+	</set>
+	where id = #{id};
+	</update>
+	
+	<select id="getoneCangKu" parameterType="int" resultType="cangku">
+	select id,ckName,userName,ckAddress,content from t_cangku where id = #{id};
+	</select>
+	
+	<select id="getoneCangKuN" parameterType="String" resultType="cangku">
+	select id,ckName,userName,ckAddress,content from t_cangku where ckName = #{ckName};
+	</select>	
+	
+	<select id="getMoreCangKu" resultType="cangku">
+	select id,ckName,userName,ckAddress,content from t_cangku;
+	</select>
+	
+	<select id="getCangKuName" resultType="cangku">
+	select ckName from t_cangku;
+	</select>
+	
+	<select id="getownerCangku" resultType="cangku">
+	select ckName from t_cangku where userName = #{userName}
+	</select>
+</mapper>

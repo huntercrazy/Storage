@@ -1,0 +1,246 @@
+@charset "utf-8";
+body, h1, h2, h3, h4, h5, h6, hr, p, form, blockquote, dl, dd, pre {
+	margin:0;
+}
+button, th, td {
+	padding:0;
+}
+ul, ol, textarea, input {
+	margin:0;
+	padding:0;
+}
+ul, ol {
+	list-style: none;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size:100%;
+	font-weight:normal;
+}
+fieldset, img {
+	border:0;
+}
+select, input, img, select {
+	vertical-align:middle;
+}
+.button {
+	color:#fff;
+}
+input {
+}
+select, textarea {
+}
+h2 {
+	font-family:"Microsoft YaHei";
+	font-weight:700;
+}
+body {
+	font:12px/1.5em Arial;
+	color:#000;
+	background:#fafafa;
+}
+a {
+	text-decoration: none;
+	color:#696969;
+}
+a:hover {
+	text-decoration: underline;
+	color:#696969;
+}
+.clear {
+	clear:both;
+}
+/*----------------------------------top----------------------------------*/
+.header {
+	height: 50px;
+	margin: 0 auto;
+	background:#2553a0;
+}
+.header .top {
+}
+.header .top .logo {
+	float: left;
+	height: 39px;
+	padding-left: 10px;
+	padding-right: 34px;
+	padding-top: 5px;
+	width: 197px;
+}
+.nav {
+	float:left;
+}
+.nav li {
+	float: left;
+	height: 20px;
+	line-height: 20px;
+}
+.nav li a {
+	color: #FFFFFF;
+	display: block;
+	font-family: "Arial";
+	font-size: 16px;
+	padding: 0 30px;
+}
+.nav li a:hover {
+	background:#3570d2;
+	text-decoration:none;
+}
+.seleli a {
+	background:#3570d2;
+}
+/*----------------------------------container-----------------------------*/
+
+.container {
+	position: absolute;
+}
+/*----------------------------------left----------------------------------*/
+.lm01 {
+	padding-bottom:15px;
+}
+.peptx {
+	float:left;
+}
+.pepdet {
+	position: relative;
+	float: left;
+	padding-left: 10px;
+	padding-top: 15px;
+}
+.pepdet p {
+	line-height: 20px;
+	width: 100%;
+}
+.pepname {
+	color: #000000;
+	font-size: 14px;
+	padding-bottom: 10px;
+	font-family:"Microsoft YaHei";
+}
+/*----------------------------------mainbody-------------------------------*/
+
+/********************切换tabmenu*************************/
+.tabContainer {
+	border: 1px solid #DDDDDD;
+	height: 45px;
+	line-height: 45px;
+	margin-bottom: 2px;
+}
+.tabContainer .tabHead {
+	float:left;
+}
+.shent {
+	float: right;
+	width: 165px;
+}
+.tabContainer .tabHead li {
+	border-right: 1px solid #DDDDDD;
+	float: left;
+	padding: 0 45px;
+}
+.tabContainer .tabHead li a {
+	color: #1D79C7;
+	font-size:14px;
+	font-weight:bold;
+}
+.currentBtn {
+	border-top: 1px solid #333333;
+}
+/********************切换tabmenu*************************/
+.scordeti ul li h3 {
+	background: none repeat scroll 0 0 #EFEFEF;
+	color: #666666;
+	font-size: 14px;
+	font-weight: bold;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+.rig_lm02 .detail .det_inner {
+	border: 1px solid #D5D5D5;
+	height: 180px;
+	margin-bottom:10px;
+	margin-top:10px;
+}
+.tabindex {
+	border-collapse:collapse;
+}
+.tabindex tr th {
+	border-collapse:collapse;
+	border:1px solid #dddddd;
+	text-align:left;
+	padding: 12px 5px;
+}
+.tabindex tr td {
+	border: 1px solid #DDDDDD;
+	border-collapse: collapse;
+	padding: 12px 5px;
+	text-align:left;
+}
+.czcol a {
+	color:#1D79C7;
+}
+.datacol {
+	color:#1D79C7;
+}
+.yccol {
+	color:#ff0000;
+}
+.fanye {
+	border: 1px solid #DDDDDD;
+	height: 58px;
+	margin: 2px 0 76px;
+}
+.fytip {
+	color:#666666;
+	padding-left:20px;
+	float:left;
+	line-height: 58px;
+}
+.yem {
+	float:right;
+	margin-top: 20px;
+}
+.yem ul li {
+	float:left;
+}
+.yem ul li a {
+	border: 1px solid #DDDDDD;
+	float: left;
+	margin: 0 1px;
+	padding: 3px 12px;
+}
+.sellify {
+}
+.sellify a {
+	background: none repeat scroll 0 0 #676D71;
+	color: #FFFFFF;
+}
+.titlab {
+	float:left;
+}
+.xila {
+	float:right;
+	font-size:8px;
+	font-weight:normal;
+	cursor:pointer;
+}
+.shent span {
+	float:left;
+}
+.shent input {
+	float: left;
+	margin-left: 5px;
+	margin-right: 20px;
+	margin-top: 13px;
+}
+.shent img {
+	float:left;
+	padding-top: 16px !important;
+}
+.tabCot {
+	_width:99.7%;
+}
+/*----------------------------------footer-----------------------------*/

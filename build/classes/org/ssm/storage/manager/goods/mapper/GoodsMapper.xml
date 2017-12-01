@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	
+<mapper namespace="org.ssm.storage.manager.goods.mapper.GoodsMapper">
+	<insert id="addGoods" parameterType="goods" useGeneratedKeys="true" keyProperty="id">
+	insert into t_goods (goodsName,goodsType,goodsKind,content) values(#{goodsName},#{goodsType},#{goodsKind},#{content});
+	</insert>
+	
+	<delete id="deleteGoods" parameterType="int">
+	delete from t_goods where id = #{id};
+	</delete>
+	
+	<update id="updateGoods" parameterType="goods">
+	update t_goods 
+	<set> 
+	<if test="goodsName != null" >
+	    goodsName = #{goodsName},
+	</if>
+	<if test="goodsType != null">
+	    goodsType = #{goodsType},
+	</if>
+	<if test="goodsKind != null">
+		goodsKind = #{goodsKind},
+	</if>
+	<if test="content != null">
+		content = #{content}
+	</if>
+	</set>
+	where id=#{id};
+	</update>
+	
+	<select id="getoneGoods" parameterType="int" resultType="goods">
+	select id,goodsName,goodsType,goodsKind,content from t_goods where id=#{id};
+	</select>
+	
+	<select id="getoneGoodsN" parameterType="String" resultType="goods">
+	select id,goodsName,goodsType,goodsKind,content from t_goods where goodsName = #{goodsName};
+	</select>
+	
+	<select id="getMoreGoods" resultType="goods">
+	select id,goodsName,goodsType,goodsKind,content from t_goods;
+	</select>
+	
+	<select id="getgoodsName" resultType="goods">
+	select goodsName from t_goods;
+	</select>
+</mapper>

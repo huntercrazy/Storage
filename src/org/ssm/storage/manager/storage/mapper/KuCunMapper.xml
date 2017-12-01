@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	
+<mapper namespace="org.ssm.storage.manager.storage.mapper.KuCunMapper">
+	
+	<select id="getAllKuCunByName" parameterType="String" resultType="kucun">
+	select id,goodsName,cunCount,ckName from t_kucun where goodsName = #{goodsName};
+	</select>
+	
+	<select id="getAllKuCun" resultType="kucun">
+	select id,goodsName,cunCount,ckName from t_kucun;
+	</select>
+	
+	<select id="getOneCount" resultType="java.lang.Integer" parameterType="String">
+	select cunCount from t_kucun where goodsName=#{goodsName} and ckName=#{ckName}
+	</select>
+	
+	<select id="getckName" parameterType="java.lang.String">
+	select * from t_kucun where goodsName=#{goodsName} and ckName=#{ckName}
+	</select>
+	
+	<update id="updateCount" parameterType="kucun">
+	update t_kucun set cunCount=${cunCount} where goodsName=#{goodsName} and ckName={ckName}
+	</update>
+	
+	<insert id="addKuCun" parameterType="kucun" useGeneratedKeys="true" keyProperty="id">
+	insert into t_kucun(goodsName,cunCount,ckName) values (#{goodsName},#{cunCount},#{ckName})
+	</insert>
+	
+	<select id="kcckList" resultType="kucun">
+	select * from t_kucun where ckName=#{ckName};
+	</select>
+</mapper>

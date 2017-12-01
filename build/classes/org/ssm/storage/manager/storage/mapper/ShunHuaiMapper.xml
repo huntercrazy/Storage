@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	
+<mapper namespace="org.ssm.storage.manager.storage.mapper.ShunHuaiMapper">
+	
+	<insert id="addShunHuai" parameterType="shunhuai" useGeneratedKeys="true" keyProperty="id">
+	insert into t_shunhuai (goodsName,userName,breakNum,ckName,content) values(#{goodsName},#{userName},#{breakNum},#{ckName},#{content});
+	</insert>
+	
+	<delete id="deleteShunHuai" parameterType="int">
+	delete from t_shunhuai where id = #{id};
+	</delete>
+	
+	<update id="updateShunHuai" parameterType="shunhuai">
+	update t_shunhuai
+	<set>
+	<if test="goodsName != null">
+		goodsName = #{goodsName},
+	</if>
+	<if test="userName != null">
+		userName = #{userName},
+	</if>
+	<if test="breakNum != null">
+		breakNum = #{breakNum},
+	</if>
+	<if test="ckName != null">
+		ckName = #{ckName},
+	</if>
+	<if test="content != null">
+		content = #{content},
+	</if>
+	</set>
+	where id = #{id};
+	</update>
+	
+	<select id="getoneShunHuai" parameterType="int" resultType="shunhuai">
+	select id,goodsName,userName,breakNum,ckName,content from t_shunhuai where id = #{id};
+	</select>
+	
+	<select id="getMoreShunHuai" resultType="shunhuai">
+	select id,goodsName,userName,breakNum,ckName,content from t_shunhuai;
+	</select>
+	
+</mapper>

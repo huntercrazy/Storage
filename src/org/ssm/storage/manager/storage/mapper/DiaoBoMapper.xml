@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	
+<mapper namespace="org.ssm.storage.manager.storage.mapper.DiaoBoMapper">
+	
+	<insert id="addDiaoBo" parameterType="diaobo" useGeneratedKeys="true" keyProperty="id">
+	insert into t_diaobo (goodsName,userName,dbTime,dbNum,oldCkName,newCkName,otherPrice,content) values (#{goodsName},#{userName},#{dbTime},#{dbNum},#{oldCkName},#{newCkName},#{otherPrice},#{content});
+	</insert>
+	
+	<delete id="deleteDiaoBo" parameterType="int">
+	delete from t_diaobo where id = #{id};
+	</delete>
+	
+	<update id="updateDiaoBo" parameterType="diaobo">
+	update t_diaobo
+	<set>
+	<if test="goodsName != null">
+		goodsName = #{goodsName},
+	</if>
+	<if test="userName != null">
+		userName = #{userName},
+	</if>
+	<if test="dbTime != null">
+		dbTime = #{dbTime},
+	</if>
+	<if test="dbNum != null">
+		dbNum = #{dbNum},
+	</if>
+	<if test="oldCkName != null">
+		oldCkName = #{oldCkName},
+	</if>
+	<if test="newCkName != null">
+		newCkName = #{newCkName},
+	</if>
+	<if test="otherPrice != null">
+		otherPrice = #{otherPrice},
+	</if>
+	<if test="content != null">
+		content = #{content},
+	</if>
+	</set>
+	where id = #{id};
+	</update>
+	
+	<select id="getoneDiaoBo" parameterType="int" resultType="diaobo">
+	select id,goodsName,userName,dbTime,dbNum,oldCkName,newCkName,otherPrice,content from t_diaobo where id = #{id};
+	</select>
+	
+	<select id="getMoreDiaoBo" resultType="diaobo">
+	select id,goodsName,userName,dbTime,dbNum,oldCkName,newCkName,otherPrice,content from t_diaobo;
+	</select>
+	
+	<select id="getDiaoBoByckName" parameterType="java.lang.String">
+	select id,goodsName,userName,dbTime,dbNum,oldCkName,newCkName,otherPrice,content from t_diaobo where oldCkName=${ckName} or newCkName=${ckName};
+	</select>
+	
+</mapper>
